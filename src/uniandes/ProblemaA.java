@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import ejemplo.ProblemaZ;
-
 /**
  * Programa para Resolver el problema 1: Inversa Matricial en Zp
  * @author Julian Oliveros Forero
