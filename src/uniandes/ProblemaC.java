@@ -24,7 +24,7 @@ public class ProblemaC {
 				) { 
 			String line = br.readLine();
 			boolean acabo = false;			
-			ArrayList resp = new ArrayList<>();
+			ArrayList<Integer> resp = new ArrayList<>();
 
 
 			while(line!=null && line.length()>0 && !"0 0".equals(line)) {
@@ -58,7 +58,7 @@ public class ProblemaC {
 	}
 
 	/**
-	 * Calcula el minimo numero de pasos que el protagosnista debe realizar para ir del origen al final del camino
+	 * Calcula el minimo numero de pasos que el protagonista debe realizar para ir del origen al final del camino
 	 * @param n Longitud en metros del camino. 
 	 * @param m Longitud rn metros del tablon.
 	 * @param int [] arreglo con las marcas. Arreglo con las marcas donde se puede tener trampolines, marca final, abismos y avance de un paso. 
