@@ -135,6 +135,11 @@ public class ProblemaA {
 						filaDestino = i;
 					}
 				}
+				//manda error en caso de que no exista pivote por lo que no se puede llegar a una matriz identidad
+				if(filaDestino==0)
+				{
+					return null;
+				}
 				matriz = cambioDeFilas(matriz, j, filaDestino);
 				matrizInversa = cambioDeFilas(matrizInversa, j, filaDestino);
 			}
