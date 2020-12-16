@@ -37,12 +37,11 @@ public class ProblemaA {
 	public static void main(String[] args) throws Exception {
 
 		ProblemaA instancia = new ProblemaA();
-
+		
 		/**
 		 * Lista de casos de prueba
 		 */
 		ArrayList<Tupla<Integer,Integer[][]>> problemas = new ArrayList<>();
-
 
 		try ( 
 				InputStreamReader is = new InputStreamReader(System.in);
@@ -51,47 +50,45 @@ public class ProblemaA {
 				) { 
 			String line;
 
-			System.out.println("1");
 			int currentMatrixSize=-1;
 			Integer[][] currentMatrix = null;
 			int currentIndex=0;
 			Integer currentPrime=0;
 
-			System.out.println("2");
-			while((line=br.readLine())!=null && line.length()>0 && !"0 0".equals(line)) {
+			while((line=br.readLine())!=null && line.length()>0) {
 				String [] dataStr = line.split(" ");
 				int[] nums = Arrays.stream(dataStr).mapToInt(f->Integer.parseInt(f)).toArray();
 
 				if(currentMatrixSize!=-1)
 				{
-					System.out.println("3");
-					if(currentIndex==nums[0])
+					if(currentIndex==currentMatrixSize)
 					{
 						currentMatrixSize =-1;
+						currentIndex=0;
 						problemas.add(instancia.new Tupla<Integer,Integer[][]>(currentPrime,currentMatrix));
+						if("0 0".equals(line))
+						{
+							break;
+						}
 					}
 					else {
 						for(int i=0;i<nums.length;i++)
 						{
-							System.out.println("4");
 							currentMatrix[currentIndex][i]=nums[i];
 						}
 						currentIndex++;
 					}
 				}
 				else {
-					System.out.println("5");
+					currentMatrixSize=nums[0];
 					currentMatrix=new Integer[nums[0]][nums[0]];
 					currentPrime = nums[1];
 				}
 			}
 		}
 
-		System.out.println("6");
-
 		for(Tupla<Integer,Integer[][]> problema:problemas)
 		{
-			System.out.println("7");
 
 			Integer[][] solucion = instancia.inversaMatricial(problema.left(),problema.right());
 			if(solucion ==null)
@@ -104,7 +101,7 @@ public class ProblemaA {
 				{
 					for(Integer filasubi:fila)
 					{
-						System.out.append(filasubi+" ");
+						System.out.append(filasubi+"-");
 					}
 					System.out.append("\n");
 				}
@@ -206,6 +203,7 @@ public class ProblemaA {
 			}
 			i++;
 		}
+		
 		return matrizInversa;
 	}
 
